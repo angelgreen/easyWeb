@@ -1,0 +1,38 @@
+apply plugin:'groovy'
+apply plugin:'war'
+apply plugin:'jetty'
+
+repositories {
+	flatDir {
+		dir 'lib'
+	}
+}
+
+compileGroovy {
+	options.fork = true
+	options.encoding = 'utf-8'
+}
+
+dependencies {
+    compile 'hibernate:antlr:2.7.6'
+    compile 'hibernate:commons-collections:3.1'
+    compile 'hibernate:dom4j:1.6.1'
+    compile 'hibernate:javassist:3.12.0'
+    compile 'hibernate:hibernate:3.6.10'
+    compile 'hibernate:jta:1.1'
+    compile 'hibernate:slf4j-api:1.6.1'
+    compile 'hibernate:javax.persistence'
+
+    compile 'db:sqlite-jdbc:3.7.6'
+
+	compile 'template:freemarker'
+
+    compile 'json:gson:2.2.4'
+	compile 'groovy:groovy-all:1.8.6'
+	compile 'jetty:servlet-api:2.5'
+
+    testCompile 'junit:junit4'
+    testCompile 'junit:hamcrest-all:1.3'
+	testCompile 'jetty:jetty'
+	testCompile 'jetty:jetty-util'
+}
