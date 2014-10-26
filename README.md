@@ -1,0 +1,6 @@
+easyWeb
+=======
+
+a very easy restful java framework ....
+
+the test comtain a server and a client write by groovy .... enjoin it ....
