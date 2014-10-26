@@ -1,12 +1,14 @@
 apply plugin:'groovy'
 apply plugin:'war'
 apply plugin:'jetty'
+apply plugin: 'maven'
 
 repositories {
 	flatDir {
 		dir 'lib'
 	}
 }
+
 
 compileGroovy {
 	options.fork = true

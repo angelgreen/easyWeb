@@ -34,8 +34,4 @@ public final class ServiceFactory {
         }
         return t;
     }
-
-    public static UserService getUserService() {
-        return getService(UserServiceImpl.class);
-    }
 }

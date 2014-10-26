@@ -35,8 +35,4 @@ public final class DAOFactory {
 		}
 			return t;
 	}
-
-    public static UserDAO getUserDAO() {
-        return getDAO(UserDAOImpl.class);
-    }
 }

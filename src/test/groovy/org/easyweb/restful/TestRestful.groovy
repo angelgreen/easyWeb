@@ -1,4 +1,4 @@
-import client.HttpBuilder
+import org.easyweb.client.HttpBuilder
 import org.junit.Test
 import org.easyweb.restful.BaseRestful
 

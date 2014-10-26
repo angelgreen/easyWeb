@@ -6,6 +6,6 @@ public class JConfigImpl extends JConfig {
     @Override
     public void configure(final Route route) {
 
-        route.put("test", TestController.class);
+//        route.put("test", TestController.class);
     }
 }
