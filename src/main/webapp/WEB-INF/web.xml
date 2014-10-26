@@ -6,10 +6,10 @@
 
     <servlet>
         <servlet-name>Dispatcher</servlet-name>
-        <servlet-class>DispatcherServlet</servlet-class>
+        <servlet-class>org.easyweb.DispatcherServlet</servlet-class>
         <init-param>
             <param-name>config</param-name>
-            <param-value>JConfigImpl</param-value>
+            <param-value>org.easyweb.JConfigImpl</param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>

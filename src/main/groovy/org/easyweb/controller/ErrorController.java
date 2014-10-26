@@ -12,4 +12,10 @@ public class ErrorController extends AbstractController{
         model.put("msg","can't find org.easyweb.controller");
         errorRender();
     }
+
+    public void test() {
+        model.put("code",200);
+        model.put("msg","ok!");
+        jsonRender();
+    }
 }
