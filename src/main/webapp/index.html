@@ -3,14 +3,25 @@
 <html>
 <head>
     <meta charset="utf8">
-    <link href="">
-    <script src="" language="javascript"></script>
+    <link href="/css/index.css" rel="stylesheet">
+	<script src="http://libs.baidu.com/jequery/1.9.0/jquery.js"></script>
+    <script src="/js/index.js" language="javascript"></script>
 </head>
 
 <body>
 <div class="container">
     <div class="row">
-        <p>Hello</p>
+		<form action="#">
+			<div class="col1">
+				<label>name</label>
+				<input id="name" type="text" placeholder="name">
+			</div>	
+			<div class="col2">
+				<label>password</label>
+				<input id="password" type="password" placeholder="password">
+			</div>
+			<button class="btn">submit</button>
+		</form>
     </div>
 </div>
 </body>

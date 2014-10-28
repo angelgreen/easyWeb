@@ -9,8 +9,13 @@ repositories {
 	}
 }
 
+jettyRun {
+	contextPath '/'
+}
 
 compileGroovy {
+	sourceCompatibility = '1.6'
+	targetCompatibility = '1.6'
 	options.fork = true
 	options.encoding = 'utf-8'
 }
