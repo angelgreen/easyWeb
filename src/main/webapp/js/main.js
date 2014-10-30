@@ -1,31 +1,24 @@
-$(document).ready(function() {
-	$("#submit").bind("click",function() {
-		ZTE.user =  {};
-		ZTE.user['name'] = $('#name').val();
-		ZTE.user['password'] = $('#password').val();
-		
-		console.log(ZTE.user);
+$(document).ready(function(){
+	//ui
+	
+	//event
+	$('#list .lock').bind('click',function() {
+	//go to 
+	window.location.href='/html/lock.html';
+	return;
+});
 
-		$.ajax({
-			type:'POST',
-			url: '/rest/test/login',
-			data: JSON.stringify(ZTE.user),
-			contentType: "application/json",
-		}).done(function(data) {
-			var code = data['code'] || '200';
-			
-			ZTE.debug(code);
-			
-			if(code == '200') {
-				$(".container").load("/html/firstPage.html");	
-			}else {
-			}
-		}).error(function() {
-
-			ZTE.debug("error");
-		});
+	$('#list .erase').bind('click',function() {
+		//go to 
+		window.location.href='/html/erase.html';
+		return;
 	});
 
-	//next page 
-	//$(".container").load("/webapp/html/firstPage.html");
+	$('#list .ring').bind('click',function() {
+		window.location.href='/html/ring.html';
+		return;
+	});
+	$.bind('beforeunload',function() {
+		return "are you leave";
+	});
 });
