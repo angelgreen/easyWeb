@@ -2,57 +2,62 @@ $(document).ready(function() {
 
 	//ui
 
-	var data = {};
+	var lock_data = {};
 		
-	$.extend(data,parent.data);
+	$.extend(lock_data,parent.lock_data);
 
 	//ui
-	$('.phoneNumber').val(data['phoneNumber'] || '');
-	$('.msg').val(data['msg'] || '');
+	$('.phoneNumber').val(lock_data['phoneNumber'] || '');
+	$('.msg').val(lock_data['msg'] || '');
 
 	//event
 	$('.phoneNumber').bind('click',function() {
 		//validation ...
-		data.phoneNumber = $(this).val();
-		return;
+		lock_data.phoneNumber = $(this).val();
+		return false;
 	});
 	//event
 	$('.msg').bind('click',function() {
 		//validation ...
-		data.msg = $(this).val();
-		return;
+		lock_data.msg = $(this).val();
+		return false;
 	});
 
 	//event
 	$('.back').bind('click',function() {
-		data.phoneNumber = $('.phoneNumber').val();
-		data.msg = $('.msg').val();
+		lock_data.phoneNumber = $('.phoneNumber').val();
+		lock_data.msg = $('.msg').val();
 
-		parent.data = {};
-		$.extend(parent.data, data);
+		parent.lock_data = {};
+		$.extend(parent.lock_data, lock_data);
 		//escope 
 		window.location.href='/html/main.html';
-		return;
+		return false;
 	});
 	//event
 	$('.submit').bind('click',function() {
 		//validation ...
-		$.ajax( {
+		lock_data.phoneNumber = $('.phoneNumber').val();
+		lock_data.msg = $('.msg').val();
+		
+		parent.lock_data =  {};
+		$.extend(parent.lock_data, lock_data);
+		
+		$.ajax({
 			type:'POST',
-			path: '/rest/lock',
-			data: JSON.stringify(data),
-			contentType
+			path: '/rest/lock/lock/lock',
+			data: JSON.stringify(lock_data),
+			contentType:'application/json'
 		}).success(function(txt){
 			var code = txt.code || '500';
 			if( code == '200') {
 				alert('ok');
-				$.extend(parent.data,data);
 				//need escape url
 				window.location.href='/html/main.html';
 			}
 		}).error(function(){
-			alert('error');
+			console.log("error");
 		});
-		return;
+		return false;
 	});
 });

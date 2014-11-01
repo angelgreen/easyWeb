@@ -1,24 +1,27 @@
 $(document).ready(function(){
 	//ui
-	
+
+		
 	//event
 	$('#list .lock').bind('click',function() {
 	//go to 
 	window.location.href='/html/lock.html';
-	return;
-});
+	return false;
+	});
 
 	$('#list .erase').bind('click',function() {
 		//go to 
 		window.location.href='/html/erase.html';
-		return;
+		return false;
 	});
 
 	$('#list .ring').bind('click',function() {
 		window.location.href='/html/ring.html';
-		return;
+		return false;
 	});
-	$.bind('beforeunload',function() {
-		return "are you leave";
+
+	$('#list .findpwd').bind('click',function() {
+		window.location.href='/html/findpwd.html';
+		return false;
 	});
 });

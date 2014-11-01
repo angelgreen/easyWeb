@@ -8,7 +8,7 @@ $(document).ready(function() {
 	//event
 	$('.btn_show').bind('click',function() {
 		win_ui.showPop();
-		return; //no popo
+		return false; //no popo
 	});
 	$(".btn").bind('click',function() {
 		var name = $('#name').val();
@@ -16,8 +16,8 @@ $(document).ready(function() {
 	
 		user.name = name;
 		user.password = password;
-		if(!/\w+/.test(name)) { alert("name error"); return;}
-		if(!/\w+/.test(password)) { alert("password error"); return;};
+		if(!/\w+/.test(name)) { alert("name error"); return false;}
+		if(!/\w+/.test(password)) { alert("password error"); return false;};
 
 		$.ajax ({
 			type: 'POST',
@@ -42,7 +42,7 @@ $(document).ready(function() {
 				win_ui.showPop('#hide_window');
 			}
 		});
-		return;
+		return false;
 	});
 	});
 });
