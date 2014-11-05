@@ -108,8 +108,10 @@ class JsonRender extends Render {
         response.setCharacterEncoding("utf-8");
         try {
             String json = gson.toJson(model);
+			response.setHeader("Content-Length",String.valueOf(json.getBytes().length));
             response.getWriter().print(json);
             response.getWriter().flush();
+			response.getWriter().close();
         } catch (IOException e) {
             //ignore it ...
         }
