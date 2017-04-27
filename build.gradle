@@ -37,6 +37,8 @@ dependencies {
     compile 'json:gson:2.2.4'
 	compile 'groovy:groovy-all:1.8.6'
 	compile 'jetty:servlet-api:2.5'
+    compile 'zookeeper:zookeeper-dev'
+    compile 'zookeeper:log4j:1.2.15'
 
     testCompile 'junit:junit4'
     testCompile 'junit:hamcrest-all:1.3'
