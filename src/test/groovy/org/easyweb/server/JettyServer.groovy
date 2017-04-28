@@ -58,6 +58,15 @@ class JettyServer {
 
     public static void main(String... args) {
         def server = new JettyServer()
-        server.start()
+
+        def registry = new ZookeeperRegistry()
+
+        registry.startZK()
+
+        registry.registerService("/service/userAPI", "localhost:8080")
+
+        server.start() //stop it ..
+
+        registry.stopZK() //stop it
     }
 }
