@@ -14,7 +14,7 @@ public class ActionMapping {
 
     private final Route route;
 
-    private final Map<String, Action> actionMap = new HashMap<String, Action>();
+	private final TST<Action> actionTries = new TST<Action>(); //the action tries 
 
 
     public ActionMapping(final JConfig configuration) {
@@ -74,7 +74,7 @@ public class ActionMapping {
 
                     Action action = new Action(clazz, method, realInterceptors);
 
-                    actionMap.put(key, action);
+                    actionTries.put(key, action);
                 }
 
             }
@@ -108,10 +108,10 @@ public class ActionMapping {
         //for example ... org.easyweb.controller/method/
         if (key.lastIndexOf("/") != -1) key = key.substring(0, key.length());
 
-        Action action = actionMap.get(key);
+        Action action = actionTries.get(key);
 
         if (null == action) {
-            action = actionMap.get("error/do404Error");
+            action = actionTries.get("error/do404Error");
         }
         //may be null
         return action;
